@@ -950,11 +950,12 @@ class _MineWidgetState extends State<MineWidget> {
                 ),
               ),
             ].addToEnd(SizedBox(height: 180.0)),
-            ),
           ),
-          BottomNavigationWithAd(currentPage: 'mine'),
-        ],
-      ),
-    );
+        ),
+        BottomNavigationWithAd(currentPage: 'mine'),
+      ],
+    ),
+  ),
+);
   }
 }
