@@ -27,7 +27,7 @@ class BottomNavigationWithAd extends StatelessWidget {
             width: double.infinity,
             height: 80.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
+              color: Colors.white,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
@@ -241,7 +241,7 @@ class BottomNavigationWithAd extends StatelessWidget {
             width: double.infinity,
             height: 60.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
+              color: Colors.white,
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
