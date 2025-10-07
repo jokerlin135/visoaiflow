@@ -100,6 +100,11 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-07**: Fixed dark mode issue in bottom navigation
+  - Changed bottom navigation background from theme-based to hardcoded `Colors.white`
+  - Resolves black background issue when Android phone is in dark mode
+  - Navigation now displays correctly regardless of system theme settings
+
 - **2025-10-07**: Fixed bottom navigation with banner ads
   - Created reusable `BottomNavigationWithAd` component at `lib/components/bottom_navigation_with_ad.dart`
   - Implemented fixed bottom navigation (Home, AI Tools, Mine tabs) across all main pages
