@@ -37,22 +37,76 @@ A Flutter-based AI photo application built with FlutterFlow that creates studio-
 ## Development Setup
 
 ### Running the App
-The app is configured to run as a web application on port 5000:
+The app is configured to run as a web application on port 5000. Use the build script to compile and serve the app:
+
 ```bash
-flutter run -d web-server --web-port 5000 --web-hostname 0.0.0.0
+./build_web.sh
+python3 -m http.server 5000 --directory build/web --bind 0.0.0.0
 ```
 
+Or use the configured workflow which runs automatically.
+
 ### Platform Support
-- Web (primary for Replit)
-- iOS (native)
-- Android (native)
+- Web (primary for Replit, with limitations)
+- iOS (native, recommended for full functionality)
+- Android (native, recommended for full functionality)
+
+### Known Limitations in Replit
+
+**CRITICAL: Web Preview Not Functional**: The Replit preview environment does not support WebGL/GPU acceleration, and the installed Flutter version (3.32.0) does not support the `--web-renderer html` flag needed to compile for HTML renderer. This creates a fundamental incompatibility:
+
+- The app compiles with CanvasKit renderer (requires WebGL)
+- Replit's preview browser does not support WebGL
+- Result: **Blank white screen in Replit preview**
+
+**Current Workaround (Partial)**:
+- The `build_web.sh` script attempts to patch the renderer configuration after build
+- This changes the config but cannot remove CanvasKit dependencies from the compiled JavaScript
+- The app may load intermittently but is not reliable
+
+**Solutions**:
+1. **Upgrade Flutter** (if possible): Use Flutter 3.10+ which supports `--web-renderer html` flag
+2. **Test Locally**: Download the code and run on a WebGL-capable browser
+3. **Deploy Elsewhere**: Use Vercel, Netlify, or Firebase Hosting which support WebGL
+4. **Use Native Apps**: The iOS and Android builds will work perfectly without these limitations
+5. **Regenerate from FlutterFlow**: If you have access to the original FlutterFlow project, regenerate with HTML renderer settings
+
+## Import Status
+
+**STATUS: PARTIAL IMPORT - Web Preview Not Functional**
+
+The Flutter environment has been successfully set up in Replit with all dependencies installed, build scripts configured, and workflows established. However, the web preview does not render the app due to a fundamental compatibility issue between:
+- Flutter's CanvasKit renderer (requires WebGL)
+- Replit's preview browser (WebGL disabled)
+- Available Flutter tooling (lacks `--web-renderer html` support)
+
+**What Works:**
+✅ Flutter SDK installed and configured
+✅ All dependencies installed via `flutter pub get`
+✅ Build system configured (`build_web.sh`)
+✅ Workflow serving on port 5000
+✅ Deployment configuration set
+✅ Git ignore and documentation complete
+
+**What Doesn't Work:**
+❌ Web preview shows blank screen
+❌ Cannot render UI in Replit environment
+❌ Requires WebGL which Replit doesn't provide
+
+**User Options:**
+1. Use native iOS/Android builds (recommended)
+2. Deploy to WebGL-capable hosting (Vercel, Netlify, Firebase)
+3. Download and test locally in Chrome/Edge
+4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
 - **2025-10-07**: Initial Replit environment setup
-  - Installed Flutter SDK via Nix
+  - Installed Flutter SDK (3.32.0) via Nix
   - Configured web platform support
-  - Set up workflow to run on port 5000
+  - Created build script with renderer patching attempt
+  - Set up workflow to serve static build on port 5000
   - Added .gitignore for Flutter projects
+  - Documented WebGL/CanvasKit limitation
 
 ## Features
 - AI-powered headshot generation
