@@ -100,6 +100,13 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-07**: Fixed bottom navigation with banner ads
+  - Created reusable `BottomNavigationWithAd` component at `lib/components/bottom_navigation_with_ad.dart`
+  - Implemented fixed bottom navigation (Home, AI Tools, Mine tabs) across all main pages
+  - Banner ads display below navigation and remain visible when scrolling
+  - Updated Homepage, AI Tools, and Mine pages to use shared navigation widget
+  - Added 180px bottom padding to content to prevent overlap with fixed navigation
+
 - **2025-10-07**: Initial Replit environment setup
   - Installed Flutter SDK (3.32.0) via Nix
   - Configured web platform support
