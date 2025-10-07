@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/admob_util.dart' as admob;
+import '/components/bottom_navigation_with_ad.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -58,10 +59,12 @@ class _MineWidgetState extends State<MineWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFFF9FAFB),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
                 child: Container(
@@ -946,9 +949,11 @@ class _MineWidgetState extends State<MineWidget> {
                   ),
                 ),
               ),
-            ],
+            ].addToEnd(SizedBox(height: 180.0)),
+            ),
           ),
-        ),
+          BottomNavigationWithAd(currentPage: 'mine'),
+        ],
       ),
     );
   }
