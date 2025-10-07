@@ -100,6 +100,11 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-07**: Removed Grab advertisement from app
+  - Removed Grab (VN) advertisement card from Homepage and Mine pages
+  - Bottom navigation (Home, AI Tools, Mine) and AdMob banner remain intact
+  - Cleaner UI without third-party app promotions
+
 - **2025-10-07**: Removed unnecessary header from homepage
   - Removed time display ("11:31") and signal icons (📶 📶 90) from homepage top
   - Cleaned up UI to show only relevant content
