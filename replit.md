@@ -100,6 +100,12 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Removed hardcoded Hugging Face API token for security
+  - Token now must be provided via `--dart-define=HUGGINGFACE_API_TOKEN=your_token` during build
+  - GitHub push protection will now pass
+  - See BUILD_INSTRUCTIONS.md for build commands
+  - **Security best practice**: API tokens should never be committed to git
+
 - **2025-10-08**: Fixed Hugging Face model 404 errors
   - **Changed all models to use `stabilityai/stable-diffusion-2-1`** (verified working, public access)
   - Previous models required special API access or didn't exist (404 errors)
