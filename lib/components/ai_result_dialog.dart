@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:gal/gal.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 
@@ -16,21 +16,15 @@ class AIResultDialog extends StatelessWidget {
 
   Future<void> _saveImage(BuildContext context) async {
     try {
-      final result = await ImageGallerySaver.saveImage(
-        imageBytes,
-        quality: 100,
-        name: 'ai_photo_${DateTime.now().millisecondsSinceEpoch}',
-      );
-
-      if (result['isSuccess']) {
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Image saved to gallery!'),
-              backgroundColor: Colors.green,
-            ),
-          );
-        }
+      await Gal.putImageBytes(imageBytes);
+      
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Image saved to gallery!'),
+            backgroundColor: Colors.green,
+          ),
+        );
       }
     } catch (e) {
       if (context.mounted) {
