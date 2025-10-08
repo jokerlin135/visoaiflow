@@ -21,4 +21,3 @@ export '/headshots/headshots_widget.dart' show HeadshotsWidget;
 export '/tophits/tophits_widget.dart' show TophitsWidget;
 export '/explore/explore_widget.dart' show ExploreWidget;
 export '/swapface/swapface_widget.dart' show SwapfaceWidget;
-export '/pages/ai_test/ai_test_widget.dart' show AITestWidget;

@@ -169,11 +169,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SwapfaceWidget.routeName,
           path: SwapfaceWidget.routePath,
           builder: (context, params) => SwapfaceWidget(),
-        ),
-        FFRoute(
-          name: AITestWidget.routeName,
-          path: AITestWidget.routePath,
-          builder: (context, params) => AITestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

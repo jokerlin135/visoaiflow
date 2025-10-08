@@ -31,12 +31,12 @@ args = "python3 -m http.server 5000 --directory build/web --bind 0.0.0.0"
 waitForPort = 5000
 
 [[ports]]
-localPort = 3000
-externalPort = 3000
-
-[[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 41329
+externalPort = 3000
 
 [deployment]
 deploymentTarget = "autoscale"
