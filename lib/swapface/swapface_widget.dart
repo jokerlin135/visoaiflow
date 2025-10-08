@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import '/components/bottom_navigation_with_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'swapface_model.dart';
@@ -83,10 +84,12 @@ class _SwapfaceWidgetState extends State<SwapfaceWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: SafeArea(
+        body: Stack(
+          children: [
+            SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
+              child: SingleChildScrollView(
+                child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -415,35 +418,8 @@ class _SwapfaceWidgetState extends State<SwapfaceWidget> {
                                 ),
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
+                                  child:  Padding(
                                     padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '4fx54lx6' /* G */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            font: GoogleFonts.interTight(
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                  ),
-                                ),
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -562,10 +538,17 @@ class _SwapfaceWidgetState extends State<SwapfaceWidget> {
               ]
                   .divide(SizedBox(height: 24.0))
                   .addToStart(SizedBox(height: 16.0))
-                  .addToEnd(SizedBox(height: 16.0)),
+                  .addToEnd(SizedBox(height: 180.0)),
+                      ),
+                    ),
+                  ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: BottomNavigationWithAd(currentPage: 'aitools'),
             ),
-          ),
-        ),
+          ],
       ),
     );
   }

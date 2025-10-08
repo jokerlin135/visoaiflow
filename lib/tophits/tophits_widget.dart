@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import '/components/bottom_navigation_with_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'tophits_model.dart';
@@ -98,13 +99,15 @@ class _TophitsWidgetState extends State<TophitsWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: SafeArea(
-          top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+        body: Stack(
+          children: [
+            SafeArea(
+              top: true,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                 GridView(
                   padding: EdgeInsets.zero,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -778,35 +781,8 @@ class _TophitsWidgetState extends State<TophitsWidget> {
                                 ),
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
+                                  child:  Padding(
                                     padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'z4cb64ge' /* G */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            font: GoogleFonts.inter(
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLarge
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLarge
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                  ),
-                                ),
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -914,10 +890,17 @@ class _TophitsWidgetState extends State<TophitsWidget> {
               ]
                   .divide(SizedBox(height: 16.0))
                   .addToStart(SizedBox(height: 16.0))
-                  .addToEnd(SizedBox(height: 16.0)),
+                  .addToEnd(SizedBox(height: 180.0)),
+                      ),
+                    ),
+                  ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: BottomNavigationWithAd(currentPage: 'aitools'),
             ),
-          ),
-        ),
+          ],
       ),
     );
   }

@@ -52,7 +52,7 @@ class _OthersWidgetState extends State<OthersWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-            child: FlutterFlowIconButton(
+                child: FlutterFlowIconButton(
               borderRadius: 20.0,
               buttonSize: 40.0,
               icon: Icon(
@@ -69,11 +69,13 @@ class _OthersWidgetState extends State<OthersWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: SafeArea(
+        body: Stack(
+          children: [
+            SafeArea(
           top: true,
-          child: Padding(
+              child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-            child: SingleChildScrollView(
+                child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -421,35 +423,10 @@ class _OthersWidgetState extends State<OthersWidget> {
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
+                                    child:  Padding(
+            child: SingleChildScrollView(
                                     child: Padding(
                                       padding: EdgeInsets.all(8.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '257s6rpn' /* G */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              font: GoogleFonts.interTight(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
                                 ),
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -551,10 +528,17 @@ class _OthersWidgetState extends State<OthersWidget> {
                 ]
                     .divide(SizedBox(height: 24.0))
                     .addToStart(SizedBox(height: 24.0))
-                    .addToEnd(SizedBox(height: 24.0)),
-              ),
+                    .addToEnd(SizedBox(height: 180.0)),
+                        ),
+                      ),
+                    ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: BottomNavigationWithAd(currentPage: 'aitools'),
             ),
-          ),
+          ],
         ),
       ),
     );

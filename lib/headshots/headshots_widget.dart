@@ -52,7 +52,7 @@ class _HeadshotsWidgetState extends State<HeadshotsWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-            child: FlutterFlowIconButton(
+                child: FlutterFlowIconButton(
               borderRadius: 20.0,
               buttonSize: 40.0,
               icon: Icon(
@@ -342,34 +342,7 @@ class _HeadshotsWidgetState extends State<HeadshotsWidget> {
                             ),
                             child: Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '6uz1m1xl' /* G */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        font: GoogleFonts.interTight(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 18.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .headlineSmall
-                                            .fontStyle,
-                                      ),
-                                ),
-                              ),
-                            ),
+                              child:                             ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -469,9 +442,16 @@ class _HeadshotsWidgetState extends State<HeadshotsWidget> {
           ]
               .divide(SizedBox(height: 24.0))
               .addToStart(SizedBox(height: 12.0))
-              .addToEnd(SizedBox(height: 24.0)),
-        ),
-      ),
-    );
+              .addToEnd(SizedBox(height: 180.0)),
+                  ),
+                ),
+              ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: BottomNavigationWithAd(currentPage: 'aitools'),
+            ),
+          ],
   }
 }
