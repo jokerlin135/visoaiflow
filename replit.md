@@ -100,6 +100,11 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-07**: Improved Pro page background for better readability
+  - Changed background from flower image to purple-pink gradient
+  - Gradient uses app theme colors (#7C3AED → #9810FA → #DB2777)
+  - White text and UI elements now clearly readable on solid gradient background
+
 - **2025-10-07**: Removed Grab advertisement from app
   - Removed Grab (VN) advertisement card from Homepage and Mine pages
   - Bottom navigation (Home, AI Tools, Mine) and AdMob banner remain intact
