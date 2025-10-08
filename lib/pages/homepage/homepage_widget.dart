@@ -325,6 +325,75 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+                      child: InkWell(
+                        onTap: () async {
+                          context.pushNamed(AITestWidget.routeName);
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Color(0xFF9810FA), Color(0xFF7C3AED)],
+                              stops: [0.0, 1.0],
+                              begin: AlignmentDirectional(-1.0, 0.0),
+                              end: AlignmentDirectional(1.0, 0),
+                            ),
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 48.0,
+                                    height: 48.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Icon(
+                                      Icons.science,
+                                      color: Colors.white,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                  SizedBox(width: 12.0),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '🧪 AI Test Lab',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Test all AI features',
+                                        style: TextStyle(
+                                          color: Colors.white.withOpacity(0.9),
+                                          fontSize: 14.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 20.0,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
