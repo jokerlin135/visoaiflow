@@ -100,6 +100,11 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Fixed duplicate navigation on Mine page
+  - Removed hardcoded navigation bar that was showing duplicate tabs
+  - Mine page now uses only the shared BottomNavigationWithAd component
+  - Consistent navigation experience across all pages (Homepage, AI Tools, Mine)
+
 - **2025-10-07**: Improved Pro page background for better readability
   - Changed background from flower image to purple-pink gradient
   - Gradient uses app theme colors (#7C3AED → #9810FA → #DB2777)
