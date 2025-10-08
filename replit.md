@@ -100,6 +100,17 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Updated Supabase configuration for better security
+  - Changed Supabase URL to new project: https://pmewibnkntbcaigkasnz.supabase.co
+  - Migrated credentials to Replit Secrets (SUPABASE_URL, SUPABASE_ANON_KEY)
+  - Code now uses environment variables instead of hardcoded values
+  - Improved security by removing secrets from source code
+
+- **2025-10-08**: Cleaned up Mine page UI
+  - Removed time/signal header (11:43, 🔇📶📱88) for cleaner design
+  - More streamlined and professional appearance
+  - Content starts directly with main features
+
 - **2025-10-08**: Fixed duplicate navigation on Mine page
   - Removed hardcoded navigation bar that was showing duplicate tabs
   - Mine page now uses only the shared BottomNavigationWithAd component
