@@ -1,9 +1,7 @@
-import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/admob_util.dart' as admob;
 import '/components/bottom_navigation_with_ad.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
