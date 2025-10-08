@@ -18,6 +18,10 @@ author = "agent"
 task = "workflow.run"
 args = "Flutter Web App"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "HuggingFace API Proxy"
+
 [[workflows.workflow]]
 name = "Flutter Web App"
 author = "agent"
@@ -30,9 +34,29 @@ task = "shell.exec"
 args = "python3 -m http.server 5000 --directory build/web --bind 0.0.0.0"
 waitForPort = 5000
 
+[[workflows.workflow]]
+name = "HuggingFace API Proxy"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node api/huggingface_proxy.js"
+waitForPort = 3000
+
+[workflows.workflow.metadata]
+outputType = "console"
+
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 39761
+externalPort = 3000
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
 
 [deployment]
 deploymentTarget = "autoscale"
