@@ -55,11 +55,14 @@ class _ProWidgetState extends State<ProWidget> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.asset(
-                      'assets/images/njcjfp.png',
-                    ).image,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF7C3AED),
+                      Color(0xFF9810FA),
+                      Color(0xFFDB2777),
+                    ],
                   ),
                 ),
               ),
