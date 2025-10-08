@@ -1,5 +1,2 @@
-[project]
-ref = "pmewibnkntbcaigkasnz"
-
 [functions.huggingface-proxy]
 verify_jwt = false
