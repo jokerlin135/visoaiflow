@@ -3,7 +3,7 @@
 ## 🚀 Quick Deploy Guide
 
 ### Prerequisites
-- Supabase account with project: `lfeyveflpbkrzsoscjcv`
+- Supabase account with project: `pmewibnkntbcaigkasnz`
 - Hugging Face API token
 - Supabase CLI installed
 
@@ -27,7 +27,7 @@ supabase login
 ### Step 3: Link to Your Project
 ```bash
 cd supabase/functions/huggingface-proxy
-supabase link --project-ref lfeyveflpbkrzsoscjcv
+supabase link --project-ref pmewibnkntbcaigkasnz
 ```
 
 ### Step 4: Set Secret (Hugging Face Token)
@@ -35,21 +35,26 @@ supabase link --project-ref lfeyveflpbkrzsoscjcv
 supabase secrets set HUGGINGFACE_API_TOKEN=hf_your_token_here
 ```
 
-### Step 5: Deploy Function
+### Step 5: Deploy Function (with public access)
 ```bash
-supabase functions deploy huggingface-proxy
+supabase functions deploy huggingface-proxy --no-verify-jwt
 ```
+
+**Note**: The `--no-verify-jwt` flag allows the app to call this function without authentication. This is safe because:
+- The Hugging Face API token is stored server-side as a secret
+- The function only proxies AI image generation requests
+- Client cannot access the HF token
 
 ### Step 6: Verify Deployment
 The function should be available at:
 ```
-https://lfeyveflpbkrzsoscjcv.supabase.co/functions/v1/huggingface-proxy
+https://pmewibnkntbcaigkasnz.supabase.co/functions/v1/huggingface-proxy
 ```
 
 Test with curl:
 ```bash
 curl -X POST \
-  https://lfeyveflpbkrzsoscjcv.supabase.co/functions/v1/huggingface-proxy \
+  https://pmewibnkntbcaigkasnz.supabase.co/functions/v1/huggingface-proxy \
   -H "Content-Type: application/json" \
   -d '{
     "model": "stabilityai/stable-diffusion-2-1",
@@ -66,7 +71,7 @@ Make sure these secrets are set in your Supabase project:
 
 ### Error: Function not found
 - Make sure you're in the correct directory
-- Check project ref is correct: `lfeyveflpbkrzsoscjcv`
+- Check project ref is correct: `pmewibnkntbcaigkasnz`
 
 ### Error: Unauthorized
 - Verify your Supabase login: `supabase login`

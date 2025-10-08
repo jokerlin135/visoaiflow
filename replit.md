@@ -121,7 +121,7 @@ The Flutter environment has been successfully set up in Replit with all dependen
   - Created AI Test page (/ai_test) for testing all AI features
   - Added packages: dio, http, image_picker, gal (for saving images)
   - Architecture: Flutter app → Supabase Edge Function → Hugging Face API (token secured server-side)
-  - **CRITICAL**: Edge Function must be deployed to correct Supabase project `lfeyveflpbkrzsoscjcv`
+  - **CRITICAL**: Edge Function deployed to Supabase project `pmewibnkntbcaigkasnz`
   - **Deployment Guide**: See `supabase/functions/huggingface-proxy/DEPLOY.md` for step-by-step instructions
   - **Fixed**: Updated HuggingFaceService to use correct Supabase URL
   - **Fixed**: Added AI Test route to navigation router
