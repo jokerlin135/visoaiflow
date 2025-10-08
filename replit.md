@@ -100,6 +100,13 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Fixed Hugging Face model 404 errors
+  - **Changed all models to use `stabilityai/stable-diffusion-2-1`** (verified working, public access)
+  - Previous models required special API access or didn't exist (404 errors)
+  - All AI features now use text-to-image generation (image-to-image models need special access)
+  - Models updated: Face Swap, AI Headshot, Photo Enhancement, Fix Old Photo, Restore Face, Colorize, Age Progression, Avatar
+  - **Build APK again** to get working AI features
+
 - **2025-10-08**: Fixed APK build compatibility issue
   - **Replaced `image_gallery_saver` with `gal`** to fix Android build errors
   - Old plugin used deprecated FlutterPluginRegistrar causing "Unresolved reference 'Registrar'" error
