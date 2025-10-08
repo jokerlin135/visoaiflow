@@ -52,7 +52,7 @@ class _MaleWidgetState extends State<MaleWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: FlutterFlowIconButton(
+            child: FlutterFlowIconButton(
               borderRadius: 20.0,
               buttonSize: 40.0,
               icon: Icon(
@@ -69,13 +69,11 @@ class _MaleWidgetState extends State<MaleWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: Stack(
-          children: [
-            SafeArea(
+        body: SafeArea(
           top: true,
-              child: Padding(
+          child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -507,10 +505,34 @@ class _MaleWidgetState extends State<MaleWidget> {
                               ),
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
-                                child:  Padding(
-            child: SingleChildScrollView(
                                 child: Padding(
                                   padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '5a6thgwc' /* G */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ),
                             ),
                             Expanded(
                               child: Column(
@@ -621,17 +643,10 @@ class _MaleWidgetState extends State<MaleWidget> {
                 ]
                     .divide(SizedBox(height: 24.0))
                     .addToStart(SizedBox(height: 16.0))
-                    .addToEnd(SizedBox(height: 180.0)),
-                        ),
-                      ),
-                    ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: BottomNavigationWithAd(currentPage: 'aitools'),
+                    .addToEnd(SizedBox(height: 24.0)),
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

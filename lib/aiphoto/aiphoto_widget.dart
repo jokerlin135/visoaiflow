@@ -52,7 +52,7 @@ class _AiphotoWidgetState extends State<AiphotoWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: FlutterFlowIconButton(
+            child: FlutterFlowIconButton(
               borderRadius: 24.0,
               buttonSize: 48.0,
               icon: Icon(
@@ -69,13 +69,11 @@ class _AiphotoWidgetState extends State<AiphotoWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: Stack(
-          children: [
-            SafeArea(
+        body: SafeArea(
           top: true,
-              child: Padding(
+          child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(22.0, 0.0, 22.0, 0.0),
-                child: SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -347,10 +345,36 @@ class _AiphotoWidgetState extends State<AiphotoWidget> {
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child:  Padding(
-            child: SingleChildScrollView(
                                     child: Padding(
                                       padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'wjanzx72' /* G */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .override(
+                                              font: GoogleFonts.interTight(
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMedium
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -452,17 +476,10 @@ class _AiphotoWidgetState extends State<AiphotoWidget> {
                 ]
                     .divide(SizedBox(height: 24.0))
                     .addToStart(SizedBox(height: 32.0))
-                    .addToEnd(SizedBox(height: 180.0)),
-                        ),
-                      ),
-                    ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: BottomNavigationWithAd(currentPage: 'aitools'),
+                    .addToEnd(SizedBox(height: 24.0)),
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );

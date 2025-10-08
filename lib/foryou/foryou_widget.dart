@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import '/components/bottom_navigation_with_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'foryou_model.dart';
@@ -52,7 +51,7 @@ class _ForyouWidgetState extends State<ForyouWidget> {
           automaticallyImplyLeading: false,
           leading: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: FlutterFlowIconButton(
+            child: FlutterFlowIconButton(
               borderRadius: 20.0,
               buttonSize: 40.0,
               icon: Icon(
@@ -86,12 +85,10 @@ class _ForyouWidgetState extends State<ForyouWidget> {
           centerTitle: false,
           elevation: 0.0,
         ),
-        body: Stack(
-          children: [
-            SafeArea(
+        body: SafeArea(
           top: true,
-              child: SingleChildScrollView(
-                child: Column(
+          child: SingleChildScrollView(
+            child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -654,8 +651,34 @@ class _ForyouWidgetState extends State<ForyouWidget> {
                                 ),
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child:  Padding(
+                                  child: Padding(
                                     padding: EdgeInsets.all(8.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '7umpfe1j' /* G */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            font: GoogleFonts.interTight(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                ),
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -761,17 +784,10 @@ class _ForyouWidgetState extends State<ForyouWidget> {
               ]
                   .divide(SizedBox(height: 16.0))
                   .addToStart(SizedBox(height: 16.0))
-                  .addToEnd(SizedBox(height: 180.0)),
-                      ),
-                    ),
-                  ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: BottomNavigationWithAd(currentPage: 'aitools'),
+                  .addToEnd(SizedBox(height: 16.0)),
             ),
-          ],
+          ),
+        ),
       ),
     );
   }
