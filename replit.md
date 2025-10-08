@@ -100,6 +100,16 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Integrated Hugging Face AI API for AI-powered features
+  - Created backend Node.js proxy server (port 3000) to securely handle API calls
+  - Built Flutter service layer: HuggingFaceService, ImageService, AIIntegrationService
+  - Added reusable AIResultDialog component for displaying and saving AI-generated images
+  - Implemented AI features: Face Swap, AI Headshot, Photo Enhancement, Fix Old Photo, AI Avatar
+  - Created AI Test page (/ai_test) for testing all AI features
+  - Added packages: dio, http, flutter_dotenv, image_picker, image_gallery_saver
+  - Architecture: Flutter app → Node.js proxy → Hugging Face API (token secured server-side)
+
+
 - **2025-10-08**: Fixed duplicate navigation on Mine page
   - Removed hardcoded navigation bar that was showing duplicate tabs
   - Mine page now uses only the shared BottomNavigationWithAd component

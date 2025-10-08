@@ -31,12 +31,44 @@ const server = http.createServer((req, res) => {
   req.on('end', () => {
     try {
       const data = JSON.parse(Buffer.concat(body).toString());
-      const { model, inputs, parameters } = data;
+      const { model, inputs, parameters, isBase64Image, isFaceSwap, sourceImage, targetImage } = data;
 
-      if (!model || !inputs) {
+      if (!model) {
         res.writeHead(400);
-        res.end(JSON.stringify({ error: 'Missing model or inputs' }));
+        res.end(JSON.stringify({ error: 'Missing model' }));
         return;
+      }
+
+      // Determine content type and payload
+      let contentType = 'application/json';
+      let payload;
+
+      if (isFaceSwap) {
+        // Face swap requires both images
+        if (!sourceImage || !targetImage) {
+          res.writeHead(400);
+          res.end(JSON.stringify({ error: 'Face swap requires both sourceImage and targetImage' }));
+          return;
+        }
+        payload = JSON.stringify({
+          source_image: sourceImage,
+          target_image: targetImage,
+        });
+      } else if (isBase64Image) {
+        // Convert base64 to binary for image-to-image models
+        contentType = 'application/octet-stream';
+        payload = Buffer.from(inputs, 'base64');
+      } else {
+        // Text input for text-to-image models
+        if (!inputs) {
+          res.writeHead(400);
+          res.end(JSON.stringify({ error: 'Missing inputs' }));
+          return;
+        }
+        payload = JSON.stringify({ 
+          inputs, 
+          ...(parameters && { parameters }) 
+        });
       }
 
       // Call Hugging Face API
@@ -47,7 +79,7 @@ const server = http.createServer((req, res) => {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${HF_TOKEN}`,
-          'Content-Type': 'application/json',
+          'Content-Type': contentType,
         },
       };
 
@@ -75,8 +107,7 @@ const server = http.createServer((req, res) => {
         res.end(JSON.stringify({ error: error.message }));
       });
 
-      const payload = { inputs, ...(parameters && { parameters }) };
-      hfReq.write(JSON.stringify(payload));
+      hfReq.write(payload);
       hfReq.end();
 
     } catch (error) {

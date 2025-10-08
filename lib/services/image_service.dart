@@ -28,20 +28,32 @@ class ImageService {
     }
   }
 
-  Future<Uint8List?> pickMultipleImages() async {
+  Future<List<Uint8List>?> pickTwoImages() async {
     try {
-      final List<XFile> images = await _picker.pickMultipleImages(
+      final XFile? image1 = await _picker.pickImage(
+        source: ImageSource.gallery,
         maxWidth: 1024,
         maxHeight: 1024,
         imageQuality: 85,
       );
+      
+      if (image1 == null) return null;
 
-      if (images.isNotEmpty) {
-        return await images.first.readAsBytes();
-      }
-      return null;
+      final XFile? image2 = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 85,
+      );
+      
+      if (image2 == null) return null;
+
+      return [
+        await image1.readAsBytes(),
+        await image2.readAsBytes(),
+      ];
     } catch (e) {
-      debugPrint('Multiple image picker error: $e');
+      debugPrint('Image picker error: $e');
       return null;
     }
   }
