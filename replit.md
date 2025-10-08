@@ -100,6 +100,18 @@ The Flutter environment has been successfully set up in Replit with all dependen
 4. Access FlutterFlow project and regenerate with HTML renderer
 
 ## Recent Changes
+- **2025-10-08**: Fixed APK build compatibility issue
+  - **Replaced `image_gallery_saver` with `gal`** to fix Android build errors
+  - Old plugin used deprecated FlutterPluginRegistrar causing "Unresolved reference 'Registrar'" error
+  - New `gal` plugin is fully compatible with Flutter 3.x embedding v2
+  - Updated AIResultDialog to use gal API for saving images
+  - **Build now works on Windows/Mac/Linux** without Kotlin compilation errors
+
+- **2025-10-08**: Added AI Test Lab button to homepage
+  - Added prominent gradient button on homepage for easy access to AI testing
+  - Button leads to /ai_test page with all AI features
+  - Visual design matches app theme (purple gradient)
+
 - **2025-10-08**: Integrated Hugging Face AI API with Supabase Edge Functions
   - **Migrated from Node.js to Supabase Edge Functions** for serverless backend
   - Created Supabase Edge Function at `supabase/functions/huggingface-proxy/`
@@ -107,7 +119,7 @@ The Flutter environment has been successfully set up in Replit with all dependen
   - Added reusable AIResultDialog component for displaying and saving AI-generated images
   - Implemented AI features: Face Swap, AI Headshot, Photo Enhancement, Fix Old Photo, AI Avatar
   - Created AI Test page (/ai_test) for testing all AI features
-  - Added packages: dio, http, image_picker, image_gallery_saver
+  - Added packages: dio, http, image_picker, gal (for saving images)
   - Architecture: Flutter app → Supabase Edge Function → Hugging Face API (token secured server-side)
   - **Deployment**: Edge Function must be deployed to Supabase (see supabase/functions/huggingface-proxy/README.md)
 
