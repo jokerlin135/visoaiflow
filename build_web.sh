@@ -5,7 +5,11 @@
 # because Replit's preview environment doesn't support WebGL/GPU acceleration
 
 echo "Building Flutter web app..."
-flutter build web --release
+
+# Pass Replit Secrets as dart-define parameters
+flutter build web --release \
+  --dart-define=SUPABASE_URL="${SUPABASE_URL}" \
+  --dart-define=SUPABASE_ANON_KEY="${SUPABASE_ANON_KEY}"
 
 if [ $? -eq 0 ]; then
     echo "Build successful. Patching for HTML renderer..."
