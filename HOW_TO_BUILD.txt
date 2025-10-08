@@ -1,0 +1,11 @@
+BUILD INSTRUCTIONS
+==================
+
+The app requires Hugging Face API token to work.
+Token must be provided during build, NOT in source code.
+
+BUILD COMMAND:
+flutter build apk --release --dart-define=HUGGINGFACE_API_TOKEN=YOUR_TOKEN
+
+Replace YOUR_TOKEN with your actual Hugging Face token.
+Get token from: https://huggingface.co/settings/tokens
